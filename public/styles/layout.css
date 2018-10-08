@@ -18,8 +18,73 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body .container {
+  width: 450px;
+  padding: 140px 0;
+  margin: auto;
+  background-color: #fff;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ article.tweet {
+  border: solid 1px;
+  border-color: rgba(0, 0, 0, 0.5);
+  margin: 2em;
+  border-radius: 5px;
+}
+
+article.tweet header {
+  opacity: 0.8;
+  background-color: #eee;
+  height: 80px;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.profile-pic {
+  float: left;
+  height: 70px;
+  width: 70px;
+  border-radius: 5px;
+}
+
+.username {
+  font-size: 2em;
+  margin-top: 0px;
+  padding-left: 10px;
+}
+
+.username,
+.handle {
+  display: inline;
+}
+
+.handle {
+  float: right;
+  line-height: 45px;
+}
+
+article.tweet main {
+  background-color: #fff;
+  height: 100px;
+  padding: 0.5em;
+}
+
+article.tweet main > p {
+  line-height: 50px;
+  color: #000;
+}
+
+article.tweet footer {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-top: 1px solid;
+  border-color: rgba(0, 0, 0, 0.5);
+  color: #000;
+}

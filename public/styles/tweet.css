@@ -1,0 +1,75 @@
+ article.tweet {
+  opacity: 0.7;
+  border: solid 1px;
+  margin: 2em;
+  border-radius: 5px;
+}
+
+article.tweet:hover {
+  opacity: 1;
+}
+
+article.tweet:hover .icons {
+  visibility: visible;
+}
+
+article.tweet header {
+  background-color: #eee;
+  height: 80px;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.profile-pic {
+  float: left;
+  height: 70px;
+  width: 70px;
+  border-radius: 5px;
+}
+
+.username {
+  font-size: 2em;
+  margin-top: 0px;
+  padding-left: 10px;
+}
+
+.username,
+.handle {
+  display: inline;
+}
+
+.handle {
+  float: right;
+  line-height: 45px;
+}
+
+article.tweet main {
+  background-color: #fff;
+  height: 100px;
+  padding: 0.5em;
+}
+
+article.tweet main > p {
+  line-height: 50px;
+  color: #000;
+}
+
+article.tweet footer {
+  padding: 0.5em;
+  border-top: 1px solid;
+  color: #000;
+}
+
+article.tweet footer > p,
+.icons {
+  display: inline;
+}
+
+.icons {
+  float: right;
+  visibility: hidden;
+}
+
+.icons > a {
+  color: #00a087;
+}

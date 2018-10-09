@@ -55,6 +55,7 @@ function loadTweets() {
     method: 'GET'
   })
   .done((tweets) => {
+    $('#tweet-container').empty();
     renderTweets(tweets);
   });
 }

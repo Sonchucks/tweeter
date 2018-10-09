@@ -1,4 +1,9 @@
+/*
+ * CSS for the Nav Bar
+ */
+
 #nav-bar {
+  z-index: 1;
   background-color: #00a087;
   color: #e8fdff;
   height: 80px;

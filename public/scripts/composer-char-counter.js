@@ -9,6 +9,8 @@ $(document).ready(function() {
 
     if (length < 0) {
       $('.counter').css('color', 'red');
+    } else {
+      $('.counter').css('color', '#244751');
     }
   });
 });

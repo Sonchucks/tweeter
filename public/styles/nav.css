@@ -25,3 +25,21 @@
   padding-left: 10px;
   line-height: 80px;
 }
+
+#nav-bar .nav-buttons {
+  float: right;
+}
+
+#nav-bar .nav-buttons > .compose {
+  margin: 10px;
+  height: 60px;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: aliceblue;
+  border: 1px solid black;
+}
+
+#nav-bar .nav-buttons > .compose:hover {
+  background-color: white;
+  color: black;
+}

@@ -63,10 +63,15 @@ function loadTweets() {
 $(function() {
   $('#tweet-form').on('submit', function(tweet) {
     tweet.preventDefault();
+    $('.error-message').hide();
     if ($('.textArea').val().length > 140) {
-      alert(`You're over the character count limit!`);
+      $('.error-message')
+        .slideDown('slow', function() {})
+        .html(`<i class="fa fa-times-circle"></i> You're over the character count limit!`);
     } else if ($('.textArea').val().length === 0 || $.trim($('.textArea').val()) === '') {
-      alert(`You're not tweeting anything!`);
+      $('.error-message')
+        .slideDown('slow', function() {})
+        .html(`<i class="fa fa-times-circle"></i> You're not tweeting anything!`);
     } else {
       $.ajax('/tweets', {
         method: 'POST',
@@ -79,6 +84,13 @@ $(function() {
       });
     }
   });
+  // Toggle new-tweet form
+  $('#nav-bar').click('button', function() {
+    $('.new-tweet').slideToggle('slow', function() {
+      $('.textArea').focus();
+    });
+  });
+
 });
 
 loadTweets();

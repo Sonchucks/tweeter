@@ -1,16 +1,30 @@
 'use strict';
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
+// Function which takes a Unix Epoch Timestamp and converts it into relative time.
+function relativeTime(timeStamp) {
+    var now = new Date();
+    var secondsPast = (now.getTime() - new Date(timeStamp).getTime() ) / 1000;
+
+    if (secondsPast < 60){
+        return `${parseInt(secondsPast)}s ago`;
+    } else if (secondsPast < 3600){
+        return `${parseInt(secondsPast / 60)}m ago`;
+    } else if (secondsPast <= 86400){
+        return `${parseInt(secondsPast / 3600)}h ago`;
+    } else if (secondsPast > 86400 && secondsPast <= 31536000) {
+        return `${parseInt(secondsPast / 31536000)} year ago`;
+    } else {
+        return `${parseInt(secondsPast / 31536000)} years ago`;
+    }
+}
+
+// Function which formats and inserts appropriate data to make a new tweet container.
 function createTweetElement(data) {
   const username = data.user.name;
   const avatar = data.user.avatars.small;
   const handle = data.user.handle;
   const content = data.content.text;
-  const timeStamp = data.created_at;
+  const timeStamp = relativeTime(data.created_at);
 
   const format =
       `<article class="tweet">
@@ -43,12 +57,14 @@ function createTweetElement(data) {
   return $tweet;
 }
 
+// Function which loops through the database array and passes it through the createTweetElement function.
 function renderTweets(tweets) {
   tweets.forEach(function(tweet) {
     $('#tweet-container').prepend(createTweetElement(tweet));
   });
 }
 
+// Function which obtains the information from MongoDB and passes it through the renderTweets function.
 function loadTweets() {
   $.ajax({
     url: '/tweets',
@@ -61,6 +77,13 @@ function loadTweets() {
 }
 
 $(function() {
+  // Loads the initial tweets stored in the MongoDB on first load
+  loadTweets();
+
+  /*
+   * Code to activate once the submit (Tweet) button is clicked.
+   * Validates the form as well as clears, resets and loads if it passes.
+  */
   $('#tweet-form').on('submit', function(tweet) {
     tweet.preventDefault();
     $('.error-message').hide();
@@ -84,6 +107,7 @@ $(function() {
       });
     }
   });
+
   // Toggle new-tweet form
   $('#nav-bar').click('button', function() {
     $('.new-tweet').slideToggle('slow', function() {
@@ -93,5 +117,5 @@ $(function() {
 
 });
 
-loadTweets();
+
 

@@ -9,29 +9,24 @@ function relativeTime(timeNow, timeStamp) {
   const monthsPast = Math.floor(daysPast / 30);
   const yearsPast = Math.floor(monthsPast / 12);
 
-  let time;
-  let unitAgo;
+  let timeAgo;
 
   if (yearsPast >= 1) {
-    time = yearsPast;
-    unitAgo = 'yr ago';
+    timeAgo = `${yearsPast} yr(s) ago`;
   } else if (monthsPast >= 1) {
-    time = monthsPast;
-    unitAgo = 'mon ago';
+    timeAgo = `${monthsPast} month(s) ago`;
   } else if (daysPast >= 1) {
-    time = daysPast;
-    unitAgo = 'd ago';
+    timeAgo = `${daysPast} day(s) ago`;
   } else if (hoursPast >= 1) {
-    time = hoursPast;
-    unitAgo = 'hr ago';
+    timeAgo = `${hoursPast} hr(s) ago`;
   } else if (minutesPast >= 1) {
-    time = minutesPast;
-    unitAgo = 'min ago';
+    timeAgo = `${minutesPast} min(s) ago`;
+  } else if (secondsPast >= 1) {
+    timeAgo = `${secondsPast} sec(s) ago`;
   } else {
-    time = secondsPast;
-    unitAgo = 'sec ago';
+    timeAgo = 'just now';
   }
-  return time + unitAgo;
+  return timeAgo;
 }
 
 
@@ -110,7 +105,7 @@ function noInputError() {
 
 
 $(function() {
-  // Loads the initial tweets stored in the MongoDB on first load
+  // Loads the initial tweets stored in the MongoDB
   loadTweets();
 
   /*
@@ -145,6 +140,3 @@ $(function() {
   });
 
 });
-
-
-

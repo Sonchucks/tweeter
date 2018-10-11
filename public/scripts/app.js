@@ -13,8 +13,8 @@ function relativeTime(timeNow, timeStamp) {
   let unitAgo;
 
   if (yearsPast >= 1) {
-      time = yearsPast;
-      unitAgo = 'yr ago';
+    time = yearsPast;
+    unitAgo = 'yr ago';
   } else if (monthsPast >= 1) {
     time = monthsPast;
     unitAgo = 'mon ago';

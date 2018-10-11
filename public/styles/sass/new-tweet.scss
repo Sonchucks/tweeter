@@ -1,0 +1,45 @@
+// Color Variables
+$veryLtGrey: #eee;
+$strongRed: #D8000C;
+$paleRed: #FFD2D2;
+
+.new-tweet {
+  margin-left: 2em;
+  margin-right: 2em;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: $veryLtGrey;
+  display: none;
+
+  h2 {
+  margin: 0.5em;
+  border-bottom: solid 1px;
+  }
+
+  #tweet-form {
+    margin: 0.5em;
+
+    .textArea {
+      padding: 5px;
+      width: 100%;
+    }
+
+    .error-message {
+      display: none;
+      color: $strongRed;
+      background-color: $paleRed;
+      border-radius: .5em;
+      border: 1px solid;
+      padding: 2.5px;
+      margin: .5em;
+    }
+  }
+
+  footer {
+    .counter {
+      float: right;
+      line-height: 25px
+    }
+  }
+
+}

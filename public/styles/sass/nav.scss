@@ -1,0 +1,49 @@
+// Color Variables
+$darkCyan: #00a087;
+$paleCyan: #e8fdff;
+$aliceBlue: #f0f8ff;
+$white: #fff;
+$black: #000;
+
+
+#nav-bar {
+  z-index: 1;
+  background-color: $darkCyan;
+  color: $paleCyan;
+  height: 80px;
+  padding: 0 2em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .logo {
+    float: left;
+    width: 80px;
+    height: 80px;
+  }
+
+  .header {
+    float: left;
+    font-size: 2em;
+    padding-left: 10px;
+    line-height: 80px;
+  }
+
+  .nav-buttons {
+    float: right;
+
+    .compose {
+      margin: 10px;
+      height: 60px;
+      border-radius: 5px;
+      color: $darkCyan;
+      background-color: $aliceBlue;
+      border: 1px solid $black;
+    }
+
+    .compose:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+}

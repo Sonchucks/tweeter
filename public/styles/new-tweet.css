@@ -6,32 +6,29 @@
   background-color: #eee;
   display: none;
 }
-
-h2 {
+.new-tweet h2 {
   margin: 0.5em;
   border-bottom: solid 1px;
 }
-
-textarea {
+.new-tweet #tweet-form {
+  margin: 0.5em;
+}
+.new-tweet #tweet-form .textArea {
   padding: 5px;
   width: 100%;
 }
-
-form {
-  margin: 0.5em;
-}
-
-.counter {
-  float: right;
-  line-height: 25px
-}
-
-.error-message {
+.new-tweet #tweet-form .error-message {
   display: none;
   color: #D8000C;
   background-color: #FFD2D2;
-  border-radius: .5em;
+  border-radius: 0.5em;
   border: 1px solid;
   padding: 2.5px;
-  margin: .5em;
+  margin: 0.5em;
 }
+.new-tweet footer .counter {
+  float: right;
+  line-height: 25px;
+}
+
+/*# sourceMappingURL=new-tweet.css.map */

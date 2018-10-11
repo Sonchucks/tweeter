@@ -1,0 +1,28 @@
+$fontStack: 'Roboto Condensed', sans-serif;
+
+// Color Variables
+$darkDesatCyan: #244751;
+$veryLtGrey: #eee;
+$white: #fff;
+
+html {
+  box-sizing: border-box;
+  body {
+
+    margin: 0;
+    color: $darkDesatCyan;
+    background-color: $veryLtGrey;
+    font-family: $fontStack;
+
+    .container {
+      width: 450px;
+      padding: 140px 0;
+      margin: auto;
+      background-color: $white;
+
+    }
+  }
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}

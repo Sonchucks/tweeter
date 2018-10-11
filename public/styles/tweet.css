@@ -1,78 +1,64 @@
-/*
- * CSS for Tweet Container
- */
-article.tweet {
+#tweet-container .tweet:hover {
+  opacity: 1;
+}
+#tweet-container .tweet:hover .icons {
+  visibility: visible;
+}
+#tweet-container .tweet {
   opacity: 0.7;
   border: solid 1px;
   margin: 2em;
   border-radius: 5px;
 }
-
-article.tweet:hover {
-  opacity: 1;
-}
-
-article.tweet:hover .icons {
-  visibility: visible;
-}
-
-article.tweet header {
+#tweet-container .tweet header {
   background-color: #eee;
   height: 80px;
   padding: 5px;
   border-radius: 5px 5px 0 0;
 }
-
-.profile-pic {
+#tweet-container .tweet header .profile-pic {
   float: left;
   height: 70px;
   width: 70px;
   border-radius: 5px;
 }
-
-.username {
+#tweet-container .tweet header .username,
+#tweet-container .tweet header .handle {
+  display: inline;
+}
+#tweet-container .tweet header .username {
   font-size: 2em;
   margin-top: 0px;
   padding-left: 10px;
 }
-
-.username,
-.handle {
-  display: inline;
-}
-
-.handle {
+#tweet-container .tweet header .handle {
   float: right;
   line-height: 45px;
 }
-
-article.tweet main {
+#tweet-container .tweet main {
   background-color: #fff;
   height: 100px;
   padding: 0.5em;
 }
-
-.content {
+#tweet-container .tweet main .content {
   padding: 5px;
   color: #000;
 }
-
-article.tweet footer {
+#tweet-container .tweet footer {
   padding: 0.5em;
   border-top: 1px solid;
   color: #000;
 }
-
-.time-made,
-.icons {
+#tweet-container .tweet footer .time-made,
+#tweet-container .tweet footer .icons {
   display: inline;
 }
-
-.icons {
+#tweet-container .tweet footer .icons {
   float: right;
   visibility: hidden;
 }
-
-.icons > a {
+#tweet-container .tweet footer .icons a {
   color: #00a087;
 }
+
+/*# sourceMappingURL=tweet.css.map */

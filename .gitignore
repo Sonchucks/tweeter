@@ -2,4 +2,14 @@ node_modules/
 .env
 .DS_Store
 
+# Ignore file for code testing using node
 test.js
+
+# Ignore .github folder which had instructions for when forking/cloning the inital project
+
+.github/
+
+# Ignore following files/folders that are no longer being used in the Tweeter App
+
+server/data-files/initial-tweets.json
+server/lib/in-memory-db.js

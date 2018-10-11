@@ -1,8 +1,10 @@
+'use strict';
+
 $(document).ready(function() {
-  var maxLength = 140;
+  const maxLength = 140;
 
   $('textarea').on('input', function() {
-    var length = $(this).val().length;
+    let length = $(this).val().length;
 
     length = maxLength - length;
     $('.counter').text(length);

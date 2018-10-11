@@ -1,30 +1,49 @@
 'use strict';
 
 // Function which takes a Unix Epoch Timestamp and converts it into relative time.
-function relativeTime(timeStamp) {
-    var now = new Date();
-    var secondsPast = (now.getTime() - new Date(timeStamp).getTime() ) / 1000;
+function relativeTime(timeNow, timeStamp) {
+  const secondsPast = Math.floor((timeNow - timeStamp) / 1000);
+  const minutesPast = Math.floor(secondsPast / 60);
+  const hoursPast = Math.floor(minutesPast / 60);
+  const daysPast = Math.floor(hoursPast / 24);
+  const monthsPast = Math.floor(daysPast / 30);
+  const yearsPast = Math.floor(monthsPast / 12);
 
-    if (secondsPast < 60){
-        return `${parseInt(secondsPast)}s ago`;
-    } else if (secondsPast < 3600){
-        return `${parseInt(secondsPast / 60)}m ago`;
-    } else if (secondsPast <= 86400){
-        return `${parseInt(secondsPast / 3600)}h ago`;
-    } else if (secondsPast > 86400 && secondsPast <= 31536000) {
-        return `${parseInt(secondsPast / 31536000)} year ago`;
-    } else {
-        return `${parseInt(secondsPast / 31536000)} years ago`;
-    }
+  let time;
+  let unitAgo;
+
+  if (yearsPast >= 1) {
+      time = yearsPast;
+      unitAgo = 'yr ago';
+  } else if (monthsPast >= 1) {
+    time = monthsPast;
+    unitAgo = 'mon ago';
+  } else if (daysPast >= 1) {
+    time = daysPast;
+    unitAgo = 'd ago';
+  } else if (hoursPast >= 1) {
+    time = hoursPast;
+    unitAgo = 'hr ago';
+  } else if (minutesPast >= 1) {
+    time = minutesPast;
+    unitAgo = 'min ago';
+  } else {
+    time = secondsPast;
+    unitAgo = 'sec ago';
+  }
+  return time + unitAgo;
 }
+
 
 // Function which formats and inserts appropriate data to make a new tweet container.
 function createTweetElement(data) {
+    // const now = new Date().getTime();
+
   const username = data.user.name;
   const avatar = data.user.avatars.small;
   const handle = data.user.handle;
   const content = data.content.text;
-  const timeStamp = relativeTime(data.created_at);
+  const timeStamp = relativeTime(new Date().getTime(), data.created_at);
 
   const format =
       `<article class="tweet">
@@ -76,6 +95,20 @@ function loadTweets() {
   });
 }
 
+
+// Following two functions are to display a specific error message.
+function overCharCountError() {
+  $('.error-message')
+    .slideDown()
+    .html(`<i class="fa fa-times-circle"></i> You're over the character count limit!`);
+}
+function noInputError() {
+  $('.error-message')
+    .slideDown()
+    .html(`<i class="fa fa-times-circle"></i> You're not tweeting anything!`);
+}
+
+
 $(function() {
   // Loads the initial tweets stored in the MongoDB on first load
   loadTweets();
@@ -88,13 +121,9 @@ $(function() {
     tweet.preventDefault();
     $('.error-message').hide();
     if ($('.textArea').val().length > 140) {
-      $('.error-message')
-        .slideDown('slow', function() {})
-        .html(`<i class="fa fa-times-circle"></i> You're over the character count limit!`);
+      return overCharCountError();
     } else if ($('.textArea').val().length === 0 || $.trim($('.textArea').val()) === '') {
-      $('.error-message')
-        .slideDown('slow', function() {})
-        .html(`<i class="fa fa-times-circle"></i> You're not tweeting anything!`);
+      return noInputError();
     } else {
       $.ajax('/tweets', {
         method: 'POST',
@@ -109,7 +138,7 @@ $(function() {
   });
 
   // Toggle new-tweet form
-  $('#nav-bar').click('button', function() {
+  $('.compose').click('button', function() {
     $('.new-tweet').slideToggle('slow', function() {
       $('.textArea').focus();
     });

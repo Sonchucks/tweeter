@@ -53,9 +53,10 @@ function createTweetElement(data) {
         <footer>
           <span class="time-made"></span>
           <div class="icons">
-            <a href="#"><i class="fas fa-flag"></i></a>
-            <a href="#"><i class="fas fa-retweet"></i></a>
-            <a href="#"><i class="fas fa-heart"></i></a>
+            <span class="click-for-likes">
+              <span class="likes"></span>
+              <i class="fas fa-heart"></i>
+            </span>
           </div>
         </footer>
       </article>`;
@@ -139,4 +140,11 @@ $(function() {
     });
   });
 
+
+  $('#tweet-container').on("click", ".click-for-likes", function() {
+    const tweetLikes = Number($(this).find('.likes').text())+1;
+    $(this).find('.likes').text(tweetLikes);
+  })
+
 });
+

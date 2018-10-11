@@ -57,7 +57,7 @@
   float: right;
   visibility: hidden;
 }
-#tweet-container .tweet footer .icons a {
+#tweet-container .tweet footer .icons i {
   color: #00a087;
 }
 

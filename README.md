@@ -2,7 +2,15 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
+## Final Product
+
+
+
+
 ## Getting Started
+
+
+
 
 ## Dependencies
 

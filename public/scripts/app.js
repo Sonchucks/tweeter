@@ -53,10 +53,12 @@ function createTweetElement(data) {
         <footer>
           <span class="time-made"></span>
           <div class="icons">
-            <span class="click-for-likes">
-              <span class="likes"></span>
-              <i class="fas fa-heart"></i>
-            </span>
+            <form class="tweet-like" action="/tweet/like" method="POST" data-likes="0">
+              <span class="heart" data-likes="0">
+                <span class='display-likes'></span>
+                <i class="fas fa-heart"></i>
+              </span>
+            </form>
           </div>
         </footer>
       </article>`;
@@ -141,9 +143,17 @@ $(function() {
   });
 
 
-  $('#tweet-container').on("click", ".click-for-likes", function() {
-    const tweetLikes = Number($(this).find('.likes').text())+1;
-    $(this).find('.likes').text(tweetLikes);
+  $('#tweet-container').on("click", ".tweet-like", function() {
+    let storedLikes = $(this).data('likes') + 1;
+    $(this).data('likes', storedLikes);
+    $.ajax('/tweet/like', {
+      method: 'POST',
+      data: $(this).serialize()
+    })
+
+    return $(this).find('.display-likes').text(storedLikes);
+    // const tweetLikes = Number($(this).find('.likes').text())+1;
+    // $(this).find('.likes').text(tweetLikes);
   })
 
 });

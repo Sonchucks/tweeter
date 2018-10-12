@@ -18,4 +18,14 @@ html body .container {
   box-sizing: inherit;
 }
 
+@media screen and (max-width: 450px) {
+  html body #nav-bar {
+    padding: 0;
+  }
+  html body .container {
+    width: auto;
+    padding: 100px 0;
+  }
+}
+
 /*# sourceMappingURL=layout.css.map */

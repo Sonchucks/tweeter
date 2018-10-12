@@ -37,7 +37,7 @@
 }
 #tweet-container .tweet main {
   background-color: #fff;
-  height: 100px;
+  height: auto;
   padding: 0.5em;
 }
 #tweet-container .tweet main .content {

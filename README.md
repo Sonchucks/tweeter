@@ -30,6 +30,20 @@ Tweeter is a simple, single-page Twitter clone.
 
 !["Reverse chronological order."](https://github.com/Sonchucks/tweeter/blob/master/docs/reverse-chron-order.png)
 
+### Added responsive design for handheld devices. Currently optimized for iPhone6 screens or bigger.
+
+#### iPad or equivalent screen
+
+!['View on iPad or equivalent screens'](https://github.com/Sonchucks/tweeter/blob/master/docs/iPad.png)
+
+#### iPhone 6/7/8 or equivalent screen
+
+!['View on iPhone 6/7/8 or equivalent screens'](https://github.com/Sonchucks/tweeter/blob/master/docs/iPhone6%2B.png)
+
+#### iPhone 6/7/8 Plus or equivalent screen
+
+!['View on iPhone 6/7/8 Plus or equivalent screen'](https://github.com/Sonchucks/tweeter/blob/master/docs/iPhone-Plus-Pixel2.png)
+
 ## Dependencies
 
 - Body-Parser
@@ -43,3 +57,4 @@ Tweeter is a simple, single-page Twitter clone.
 
 - Make sure to install all the dependencies using the npm install command.
 - Run the development web server using `npm run local` command.
+- To view on different devices, inspect the page using Chrome Dev Tools and change the screen size using their built in view tool.
